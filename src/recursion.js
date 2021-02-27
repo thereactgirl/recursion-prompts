@@ -49,33 +49,27 @@ var sum = function (array) {
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function (array) {
+var arraySum = function (input) {
   //  input is a nested array
   // ([1,[2,3],[[4]],5])
   // output is an integer
   //  15
+
+  // declare a closure variable
   var res = 0;
 
-  var innerFun = function (arr) {
-    console.log('array', arr)
-    // if input is not an array
-    if (!Array.isArray(arr) && typeof arr === 'number') {
-      // add input to res
-      res = res + arr;
-      // exit execution context here
-      return res;
-    }
-    // DO something and add something to the closer variable
-    // if item is an array
-    // iterate over array
-    arr.forEach(function (item) {
-      innerFun(item);
-    })
+  // if the input is not an array
+  if (!Array.isArray(input)) {
+    // base case
+    return input;
   }
-  innerFun(array);
 
+  // iterate through the input array
+  input.forEach(function(item) {
+    // Invoke and acc
+    res += arraySum(item);
+  })
 
-  console.log(res);
   return res;
 };
 
