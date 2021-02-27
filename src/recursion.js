@@ -77,7 +77,23 @@ var arraySum = function (input) {
 
 // 4. Check if a number is even.
 var isEven = function (n) {
-};
+
+  n = Math.abs(n);
+  // base case
+  if (n === 0) {
+    return true
+  }
+  if (n === 1) {
+    return false
+  }
+
+  // if n is 1  return false
+
+
+  // Invoke and acc
+  return isEven(n - 2);
+
+}
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
@@ -306,5 +322,5 @@ var mergeSort = function (array) {
 // var obj2 = clone(obj1);
 // console.log(obj2); // {a:1,b:{bb:{bbb:2}},c:3}
 // obj1 === obj2 // false
-var clone = function (input) {
+var clone = function (n) {
 };
